@@ -1,8 +1,5 @@
 <?php
-    header('Content-type: text/plain');
-    function findSubstrings($givenRack,$count1,$count2) {
-        echo ("HELLO");
-    }
+  
     
     //this is the basic way of getting a database handler from PDO, PHP's built in quasi-ORM
     $dbhandle = new PDO("sqlite:scrabble.sqlite") or die("Failed to open DB");
@@ -18,7 +15,8 @@
     echo strrev($binaryVar);
     
     $rack = "ABILOTU";
-    echo("Rack for this problem: $rack \n");
+    echo '<script>console.log("Your stuff here")</script>';
+  //  console.log("Rack for this problem: $rack \n");
     $sizeOfRack = strlen($rack);
     
     $newVar= array();
@@ -62,56 +60,6 @@
         
     }
     
-     print_r(array_filter($newVar));
-    /*while($sizeOfRack >0){
-        echo $sizeOfRack."\n";
-        echo $count."\n";
-        echo $outerCount."\n";
-        while($count <= $sizeOfRack) {
-            echo "The number is: $count \n";
-            
-            echo " Start Caring";
-    
-            $substring = substr($rack, $outerCount,$count);
-            
-            echo "The String rack is: $substring \n";
-            
-            $query = "SELECT words FROM racks WHERE rack = \"$substring\"";
-            
-            $statement = $dbhandle->prepare($query);
-            echo("QUERY DONE, CHEKCING STATEMENT\n");
-        
-            $statement->execute();
-            $results = $statement->fetchAll(PDO::FETCH_ASSOC);
-            
-            header('HTTP/1.1 200 OK');
-            header('Content-Type: application/json');
-    
-            echo json_encode($results);
-            
-            echo ("\n\n");
-            findSubstrings();
-        
-            if(json_encode($results) == "[]"){
-                echo("Empty arr\n\n\n");
-            }
-            else{
-                array_push($newVar,json_encode($results));
-            }
-            print_r ($newVar);
-            
-            $count++;
-        }
-        $count = 0;
-        $sizeOfRack --;
-        $outerCount ++;
-    }
-    print_r(array_filter($newVar));*/
-    
-    
+    print_r(array_filter($newVar));
+    echo json_encode($newVar);
 ?>
-/*     while($count2 <= $sizeOfRack){
-            
-            echo(substr($rack, $count, 1).substr($rack, $count2, 1)."\n");
-            $count2++;
-        }*/
