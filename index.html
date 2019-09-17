@@ -23,11 +23,9 @@
     
     <h3>Correct Guesses</h3>
     <h2 id = "correct"></h2>
-    
-
-    <ul id="bingos">
-    
-
+    <ul id = "correct-answers">
+        
+    </ul>
     <script>
         var rackSize = 0;
         var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -52,17 +50,41 @@
             console.log(resultString);
             document.getElementById("Rack").innerText = result;
 
-            $.ajax({
+            /*$.ajax({
                     method: "GET",
                     url: "api.php",
                     data: { "receiver":resultString},
                     success: data=>{ wordList = data}
-            });
+            }); */
             
+            $.ajax({
+                method: "GET",
+                url: "api.php",
+                data: { "receiver": resultString},
+                success : function(data) {
+                    handleData(data);
+                }
+            })
         }
 
+        var handleData = function(data) {
+            wordList = data;
+            console.log(data);
+            console.log("in handle data");
+            // Create list elements for each word
+            wordList.forEach( function(word) {
+                console.log(word);
+                var div = document.createElement(div);
+                div.innerHTML = word;
+                document.getElementById("correct-answers").append(div);
+            
+            });
+        }
+        
         var checkRack = function (evt){
             var fee = document.getElementById("guess").value;
+            console.log(fee);
+            fee = fee.toUpperCase();
             console.log(fee);
             console.log(wordList);
             if(wordList.includes(fee,0) && correctGuessList.includes(fee,0) == 0){
@@ -71,6 +93,8 @@
             }
             
         }
+        
+        
 
     </script>
 
