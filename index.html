@@ -68,28 +68,41 @@
         }
 
         var handleData = function(data) {
-            wordList = data;
+            document.getElementById("correct-answers").innerHTML = "";
+            wordList = handleDuplicates(data);
             console.log(data);
             console.log("in handle data");
             // Create list elements for each word
             wordList.forEach( function(word) {
                 console.log(word);
-                var div = document.createElement(div);
-                div.innerHTML = word;
-                document.getElementById("correct-answers").append(div);
+                var li = document.createElement('li');
+                li.innerHTML = word;
+                li.style.listStyle ="none";
+                li.style.visibility="hidden";
+                li.setAttribute("id", word);
+                document.getElementById("correct-answers").append(li);
+                document.getElementById("correct-answers").append("   Word Size = " + word.length);
             
             });
         }
         
+        // Used to delete duplicates in the array.
+        var handleDuplicates = function(data) {
+            let newArray = [];
+            data.forEach( function(word){
+                if(!newArray.includes(word)){
+                    newArray.push(word)
+                }
+            })
+            return newArray;
+        }
+        
         var checkRack = function (evt){
             var fee = document.getElementById("guess").value;
-            console.log(fee);
             fee = fee.toUpperCase();
-            console.log(fee);
-            console.log(wordList);
             if(wordList.includes(fee,0) && correctGuessList.includes(fee,0) == 0){
                 correctGuessList.push(fee);
-                document.getElementById("correct").innerText = correctGuessList;
+                document.getElementById(fee).style.visibility = "visible";
             }
             
         }
