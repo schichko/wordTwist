@@ -8,8 +8,13 @@
                 text-align: center;
             }
     </style>
-    <header>Welcome to my Wordtwist!</header>
 
+    <div class="a">
+            <h1>Welcome to my Wordtwist!</h1>
+      
+            Please Enter your favorite Color : <input type = "color" id="favColor" >
+            <p></p>
+    <div class="a">
     Please Enter your Name: <input type="text" id="name">
     <p></p>
 
@@ -111,6 +116,17 @@
             }
             
         }
+
+        var changeColorHandler = function (evt){
+            console.log(evt.currentTarget.value);
+            let mycolor = evt.currentTarget.value
+            document.getElementById("body1").style.backgroundColor = mycolor;
+        }
+
+        document.querySelector("#favColor").addEventListener(
+            "change",
+            changeColorHandler
+        )
         
         
 
