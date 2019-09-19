@@ -7,13 +7,8 @@
             div.a{
                 text-align: center;
             }
-            div.b{
-                text-align: left;
-            }
     </style>
-    <div class="b">
-        <iframe src="https://open.spotify.com/embed/album/1yfJqxKKXG320vhqLfUEeC" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-    </div class = "b">
+
     <div class="a">
             <h1>Welcome to my Wordtwist!</h1>
       
@@ -37,11 +32,16 @@
     <p></p>
     
     <h3>Correct Guesses</h3>
+    <h3 id = "correct_count">Correct Guesses</h3>
     <h2 id = "correct"></h2>
+
+
     <ul id = "correct-answers">
         
     </ul>
-    
+    <div class="a">
+        <iframe src="https://open.spotify.com/embed/album/1yfJqxKKXG320vhqLfUEeC" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+    </div class = "a">
     <script>
         var rackSize = 0;
         var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -119,6 +119,9 @@
             if(wordList.includes(fee,0) && correctGuessList.includes(fee,0) == 0){
                 correctGuessList.push(fee);
                 document.getElementById(fee).style.visibility = "visible";
+                document.getElementById("correct").innerText = correctGuessList;
+                count_of_Correct ++;
+                document.getElementById("correct_count").innerText = "Correct Guesses: " + count_of_Correct;
             }
             
         }
