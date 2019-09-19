@@ -10,7 +10,7 @@
     </style>
 
     <div class="a">
-            <h1>Welcome to my Wordtwist!</h1>
+            <h1>Welcome to Wordtwist!</h1>
       
             Please Enter your favorite Color : <input type = "color" id="favColor" >
             <p></p>
@@ -34,7 +34,7 @@
     <h3 id = "correct_count">Correct Guesses</h3>
     <h2 id = "correct"></h2>
 
-
+    <h3 id = "length"></h3>
     <ul id = "correct-answers">
         
     </ul>
@@ -49,6 +49,7 @@
         var result = new Array(7);
         var resultString = "";
         var wordList = new Array();
+        var wordLength = new Array(7);
         var correctGuessList = new Array();
 
         var randomRackGenerator = function (evt){
@@ -98,7 +99,9 @@
                 li.setAttribute("id", word);
                 document.getElementById("correct-answers").append(li);
                 document.getElementById("correct-answers").append("   Word Size = " + word.length);
-            
+                
+                wordLength[word.length] ++;
+                document.getElementById("length").innerText = wordLength;
             });
         }
         
