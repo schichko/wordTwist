@@ -3,7 +3,7 @@ session_start();
 
 $verb = $_SERVER["REQUEST_METHOD"];
 
-if ($verb === "POST")){
+if (!isset($_SESSION["name"]))){
     if($_POST['receiver_name'] != null){
         $_SESSION["name"] = $_POST['receiver_name'];
     }
