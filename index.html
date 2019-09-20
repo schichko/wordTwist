@@ -136,14 +136,14 @@
 
         var submitName = function (data){
             document.getElementById("username").innerText=document.getElementById("name").value;
-            // $.ajax({
-            //     method: "GET",
-            //     url: "cookie.php",
-            //     data: { "receiver": resultString},
-            //     success : function(data) {
-            //         handleData(data);
-            //     }
-            // })
+            $.ajax({
+                method: "POST",
+                url: "cookie.php",
+                data: { "receiver_name": document.getElementById("name").value},
+                success : function(data) {
+                    
+                }
+            })
         }
 
         var changeColorHandler = function (evt){
