@@ -3,7 +3,7 @@ session_start();
 
 
 
-if (!isset($_SESSION["name"])){
+if ($_SERVER['REQUEST_METHOD'] === 'POST')){
     if($_POST['receiver_name'] != null){
         $_SESSION["name"] = $_POST['receiver_name'];
     }
@@ -13,10 +13,15 @@ if (!isset($_SESSION["name"])){
     if($_POST['wordList'] != null){
         $_SESSION["wordList"] = $_POST['wordList'];
     }
-} else {
+    if($_POST['correctGuesses'] != null){
+        $_SESSION["correctGuesses"] = $_POST['correctGuesses']
+    }
+} 
+
+if ($_SERVER['REQUEST_METHOD'] === 'GET')){
     header('HTTP/1.1 200 OK');
     header('Content-Type: application/json');
-    $dbSigning_array = array($_SESSION["name"],$_SESSION["rack"],$_SESSION["wordList"]);
+    $dbSigning_array = array($_SESSION["name"],$_SESSION["rack"],$_SESSION["wordList"].$_SESSION["correctGuesses"]);
     echo json_encode($dbSigning_array);
 }
 ?>

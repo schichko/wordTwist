@@ -15,7 +15,7 @@
                 success : function(data) {
                     console.log(data[0]);
                     console.log(data[1]);
-                    if(data != null){
+                    if(data != undefined){
                         console.log(data[1]);
                         document.getElementById("username").innerText = "Welcome "+data[0]+" !" ;
                         document.getElementById("Rack").innerText = data[1];
@@ -72,7 +72,12 @@
         var correctGuessList = new Array();
         var wordLengthCount =[0,0,0,0,0,0,0];
         
-
+        var setGuesses = function (data){
+            correctGuessList = data;
+            document.getElementById("correct").innerText = correctGuessList;
+            count_of_Correct = correctGuessList.length;
+            document.getElementById("correct_count").innerText = "Correct Guesses: " + count_of_Correct;
+        }
 
         var randomRackGenerator = function (evt){
             
@@ -90,13 +95,6 @@
             //resultString = resultString.substring(0, resultString.length).replace(",","")
             console.log(resultString);
             document.getElementById("Rack").innerText = result;
-
-            /*$.ajax({
-                    method: "GET",
-                    url: "api.php",
-                    data: { "receiver":resultString},
-                    success: data=>{ wordList = data}
-            }); */
             
             $.ajax({
                 method: "GET",
@@ -117,14 +115,6 @@
             // Create list elements for each word
             wordList.forEach( function(word) {
                 console.log(word);
-                // var li = document.createElement('li');
-                // li.innerHTML = word;
-                // li.style.listStyle ="none";
-                // li.style.visibility="hidden";
-                // li.setAttribute("id", word);
-                // document.getElementById("correct-answers").append(li);
-                // document.getElementById("correct-answers").append("   Word Size = " + word.length);
-                
                 wordLengthCount[word.length-1] = wordLengthCount[word.length-1] +1;
                 document.getElementById("length").innerText = "One Letter:"+wordLengthCount[0]+"\nTwo Letters:"+wordLengthCount[1]+"\nThree Letters:"+wordLengthCount[2]+"\nFour Letters:"+wordLengthCount[3]+"\nFive Letters:"+wordLengthCount[4]+"\nSix Letters:"+wordLengthCount[5]+"\nSeven Letters:"+wordLengthCount[6];
             });
@@ -160,7 +150,7 @@
             $.ajax({
                 method: "POST",
                 url: "cookie.php",
-                data: { "receiver_name": document.getElementById("name").value,"rack":result,"wordList":wordList},
+                data: { "receiver_name": document.getElementById("name").value,"rack":result,"wordList":wordList,"correctGuesses":correctGuessList},
                 success : function(data) {
                     
                 }
@@ -177,9 +167,11 @@
             "change",
             changeColorHandler
         )
-            
+        
     
     </script>
+    
+
 
 </body>
 </html>
