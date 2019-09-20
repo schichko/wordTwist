@@ -17,8 +17,7 @@ if ($verb === "POST")){
         $_SESSION["correctGuesses"] = $_POST['correctGuesses']
     }
 } 
-
-if ($verb === "GET")){
+else if ($verb === "GET")){
     header('HTTP/1.1 200 OK');
     header('Content-Type: application/json');
     if(!isset($_SESSION["name"]) || !isset($_SESSION["rack"]) || !isset($_SESSION["name"]) || !isset($_SESSION["correctGuesses"])){
