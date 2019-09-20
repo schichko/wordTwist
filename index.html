@@ -13,7 +13,8 @@
                 method: "GET",
                 url: "cookie.php",
                 success : function(data) {
-                    document.getElementById("username").innerText = "Welcome "+data[0]+" !"                 
+                    document.getElementById("username").innerText = "Welcome "+data[0]+" !" ;
+                    handleData(data[1]);             
                 }
             })
     </script>
@@ -64,6 +65,8 @@
         //var wordLength = new Array(7);
         var correctGuessList = new Array();
         var wordLengthCount =[0,0,0,0,0,0,0];
+        
+
 
         var randomRackGenerator = function (evt){
             
