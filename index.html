@@ -13,7 +13,7 @@
                 method: "GET",
                 url: "cookie.php",
                 success : function(data) {
-                    console.log(data);                    
+                    document.getElementById("username").innerText = "Welcome "+data+" !"                 
                 }
             })
     </script>
