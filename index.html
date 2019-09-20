@@ -125,7 +125,7 @@
                 // document.getElementById("correct-answers").append(li);
                 // document.getElementById("correct-answers").append("   Word Size = " + word.length);
                 
-                wordLengthCount[word.length] = wordLengthCount[word.length] +1;
+                wordLengthCount[word.length-1] = wordLengthCount[word.length-1] +1;
                 document.getElementById("length").innerText = "One Letter:"+wordLengthCount[0]+"\nTwo Letters:"+wordLengthCount[1]+"\nThree Letters:"+wordLengthCount[2]+"\nFour Letters:"+wordLengthCount[3]+"\nFive Letters:"+wordLengthCount[4]+"\nSix Letters:"+wordLengthCount[5]+"\nSeven Letters:"+wordLengthCount[6];
             });
         }
@@ -150,7 +150,7 @@
                 document.getElementById("correct").innerText = correctGuessList;
                 count_of_Correct ++;
                 document.getElementById("correct_count").innerText = "Correct Guesses: " + count_of_Correct;
-                wordLengthCount[fee.length] = wordLengthCount[fee.length] -1;
+                wordLengthCount[fee.length-1] = wordLengthCount[fee.length-1] -1;
                 document.getElementById("length").innerText = "One Letter:"+wordLengthCount[0]+"\nTwo Letters:"+wordLengthCount[1]+"\nThree Letters:"+wordLengthCount[2]+"\nFour Letters:"+wordLengthCount[3]+"\nFive Letters:"+wordLengthCount[4]+"\nSix Letters:"+wordLengthCount[5]+"\nSeven Letters:"+wordLengthCount[6]; 
                 }
         }
@@ -160,7 +160,7 @@
             $.ajax({
                 method: "POST",
                 url: "cookie.php",
-                data: { "receiver_name": document.getElementById("name").value,"rack":result},
+                data: { "receiver_name": document.getElementById("name").value,"rack":result,"wordList":wordList},
                 success : function(data) {
                     
                 }
