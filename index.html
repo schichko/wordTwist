@@ -13,7 +13,7 @@
                 method: "GET",
                 url: "cookie.php",
                 success : function(data) {
-                    document.getElementById("username").innerText = "Welcome "+data+" !"                 
+                    document.getElementById("username").innerText = "Welcome "+data[0]+" !"                 
                 }
             })
     </script>
@@ -95,6 +95,7 @@
                     handleData(data);
                 }
             })
+            
         }
 
         var handleData = function(data) {
@@ -144,11 +145,11 @@
         }
 
         var submitName = function (data){
-            document.getElementById("username").innerText=document.getElementById("name").value;
+            document.getElementById("username").innerText="Welcome "+document.getElementById("name").value+" !";
             $.ajax({
                 method: "POST",
                 url: "cookie.php",
-                data: { "receiver_name": document.getElementById("name").value},
+                data: { "receiver_name": document.getElementById("name").value,"rack":result},
                 success : function(data) {
                     
                 }
