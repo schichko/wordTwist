@@ -11,12 +11,14 @@
 
     <div class="a">
             <h1>Welcome to Wordtwist!</h1>
-      
+            <h3 id = "username"></h3>
             Please Enter your favorite Color : <input type = "color" id="favColor" >
             <p></p>
+            Please Enter your Name: <input type="text" id="name">
+            <button onClick = "submitName()">Submit Name</button>
     <div class="a">
-    Please Enter your Name: <input type="text" id="name">
-    <p></p>
+    
+    
 
     <button onclick="randomRackGenerator()">
             Random Rack
@@ -132,6 +134,18 @@
                 }
         }
 
+        var submitName = function (data){
+            document.getElementById("username").innerText=document.getElementById("name").innerText;
+            // $.ajax({
+            //     method: "GET",
+            //     url: "cookie.php",
+            //     data: { "receiver": resultString},
+            //     success : function(data) {
+            //         handleData(data);
+            //     }
+            // })
+        }
+
         var changeColorHandler = function (evt){
             console.log(evt.currentTarget.value);
             let mycolor = evt.currentTarget.value
@@ -142,9 +156,8 @@
             "change",
             changeColorHandler
         )
-        
-        
-
+            
+    
     </script>
 
 </body>
