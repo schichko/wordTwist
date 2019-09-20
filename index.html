@@ -13,8 +13,11 @@
                 method: "GET",
                 url: "cookie.php",
                 success : function(data) {
-                    document.getElementById("username").innerText = "Welcome "+data[0]+" !" ;
-                    handleData(data[1]);             
+                    if(data != null){
+                        console.log(data[1]);
+                        document.getElementById("username").innerText = "Welcome "+data[0]+" !" ;
+                        handleData(data[1]);
+                    }             
                 }
             })
     </script>
