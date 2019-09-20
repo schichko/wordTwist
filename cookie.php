@@ -3,7 +3,7 @@ session_start();
 
 $verb = $_SERVER["REQUEST_METHOD"];
 
-if (!isset($_SESSION["name"]))){
+if ($verb === "POST"){
     if($_POST['receiver_name'] != null){
         $_SESSION["name"] = $_POST['receiver_name'];
     }
@@ -17,7 +17,7 @@ if (!isset($_SESSION["name"]))){
         $_SESSION["correctGuesses"] = $_POST['correctGuesses']
     }
 } 
-else if ($verb === "GET")){
+else if ($verb === "GET"){
     header('HTTP/1.1 200 OK');
     header('Content-Type: application/json');
     if(!isset($_SESSION["name"]) || !isset($_SESSION["rack"]) || !isset($_SESSION["name"]) || !isset($_SESSION["correctGuesses"])){
