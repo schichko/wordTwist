@@ -14,7 +14,7 @@ if ($verb === "POST"){
         $_SESSION["wordList"] = $_POST['wordList'];
     }
     if($_POST['correctGuesses'] != null){
-        $_SESSION["correctGuesses"] = $_POST['correctGuesses']
+        $_SESSION["correctGuesses"] = $_POST['correctGuesses'];
     }
 } 
 else if ($verb === "GET"){
