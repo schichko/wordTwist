@@ -1,9 +1,9 @@
 <?php
 session_start();
 
+$verb = $_SERVER["REQUEST_METHOD"];
 
-
-if ($_SERVER["REQUEST_METHOD"] == "POST")){
+if ($verb == "POST")){
     if($_POST['receiver_name'] != null){
         $_SESSION["name"] = $_POST['receiver_name'];
     }
@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")){
     }
 } 
 
-if ($_SERVER["REQUEST_METHOD"] == "GET")){
+if ($verb == "GET")){
     header('HTTP/1.1 200 OK');
     header('Content-Type: application/json');
     $dbSigning_array = array($_SESSION["name"],$_SESSION["rack"],$_SESSION["wordList"].$_SESSION["correctGuesses"]);

@@ -10,8 +10,8 @@
     </style>
     <script>
         $.ajax({
-                method: "GET",
                 url: "cookie.php",
+                method: "GET",
                 success : function(data) {
                     console.log(data[0]);
                     console.log(data[1]);
@@ -76,7 +76,7 @@
             correctGuessList = data;
             document.getElementById("correct").innerText = correctGuessList;
             count_of_Correct = correctGuessList.length;
-            document.getElementById("correct_count").innerText = "Correct Guesses: " + count_of_Correct;
+            document.getElementById("correct_count").innerText = "Correct Guesses: " + count_of_Correct;t 
         }
 
         var randomRackGenerator = function (evt){
