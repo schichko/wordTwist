@@ -35,9 +35,9 @@
     <h2 id = "correct"></h2>
 
     <h3 id = "length"></h3>
-    <ul id = "correct-answers">
+    <!-- <ul id = "correct-answers">
         
-    </ul>
+    </ul> -->
     <div class="a">
         <iframe src="https://open.spotify.com/embed/album/1yfJqxKKXG320vhqLfUEeC" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
     </div class = "a">
@@ -97,8 +97,8 @@
                 li.style.listStyle ="none";
                 li.style.visibility="hidden";
                 li.setAttribute("id", word);
-                document.getElementById("correct-answers").append(li);
-                document.getElementById("correct-answers").append("   Word Size = " + word.length);
+                // document.getElementById("correct-answers").append(li);
+                // document.getElementById("correct-answers").append("   Word Size = " + word.length);
                 
                 wordLength[word.length] ++;
                 document.getElementById("length").innerText = wordLength;
