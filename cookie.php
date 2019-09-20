@@ -3,7 +3,7 @@ session_start();
 
 $verb = $_SERVER["REQUEST_METHOD"];
 
-if ($verb == "POST")){
+if ($verb === "POST")){
     if($_POST['receiver_name'] != null){
         $_SESSION["name"] = $_POST['receiver_name'];
     }
@@ -18,7 +18,7 @@ if ($verb == "POST")){
     }
 } 
 
-if ($verb == "GET")){
+if ($verb === "GET")){
     header('HTTP/1.1 200 OK');
     header('Content-Type: application/json');
     if(!isset($_SESSION["name"]) || !isset($_SESSION["rack"]) || !isset($_SESSION["name"]) || !isset($_SESSION["correctGuesses"])){
@@ -28,4 +28,9 @@ if ($verb == "GET")){
         echo json_encode($dbSigning_array);
     }
 }
+
+header('HTTP/1.1 200 OK');
+header('Content-Type: application/json');
+echo json_encode("EH");
+
 ?>
