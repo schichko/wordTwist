@@ -127,6 +127,8 @@
                 document.getElementById("correct").innerText = correctGuessList;
                 count_of_Correct ++;
                 document.getElementById("correct_count").innerText = "Correct Guesses: " + count_of_Correct;
+                wordLengthCount[fee.length] = wordLengthCount[fee.length] -1;
+                document.getElementById("length").innerText = "One Letter:"+wordLengthCount[0]+" Two Letters:"+wordLengthCount[1]+" Three Letters:"+wordLengthCount[2]+" Four Letters:"+wordLengthCount[3]+" Five Letters:"+wordLengthCount[4]+" Six Letters:"+wordLengthCount[5]+" Seven Letters:"+wordLengthCount[6];
             }
             
         }
