@@ -93,16 +93,16 @@
             // Create list elements for each word
             wordList.forEach( function(word) {
                 console.log(word);
-                var li = document.createElement('li');
-                li.innerHTML = word;
-                li.style.listStyle ="none";
-                li.style.visibility="hidden";
-                li.setAttribute("id", word);
+                // var li = document.createElement('li');
+                // li.innerHTML = word;
+                // li.style.listStyle ="none";
+                // li.style.visibility="hidden";
+                // li.setAttribute("id", word);
                 // document.getElementById("correct-answers").append(li);
                 // document.getElementById("correct-answers").append("   Word Size = " + word.length);
                 
                 correctGuessList[word.length] = correctGuessList[word.length] +1;
-                document.getElementById("length").innerText = correctGuessList;
+                document.getElementById("length").innerText = "One Letter:"+correctGuessList[0]+" Two Letters:"+correctGuessList[1]+" Three Letters:"+correctGuessList[2]+" Four Letters:"+correctGuessList[3]+" Five Letters:"+correctGuessList[4]+" Six Letters:"+correctGuessList[5]+" Seven Letters:"+correctGuessList[6];
             });
         }
         
