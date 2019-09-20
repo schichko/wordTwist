@@ -41,6 +41,7 @@
     <div class="a">
         <iframe src="https://open.spotify.com/embed/album/1yfJqxKKXG320vhqLfUEeC" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
     </div class = "a">
+
     <script>
         var rackSize = 0;
         var count_of_Correct = 0;
@@ -49,7 +50,7 @@
         var result = new Array(7);
         var resultString = "";
         var wordList = new Array();
-        var wordLength = new Array(7);
+        //var wordLength = new Array(7);
         var correctGuessList = [0,0,0,0,0,0,0];
 
         var randomRackGenerator = function (evt){
@@ -100,8 +101,8 @@
                 // document.getElementById("correct-answers").append(li);
                 // document.getElementById("correct-answers").append("   Word Size = " + word.length);
                 
-                wordLength[word.length] = wordLength +1;
-                document.getElementById("length").innerText = wordLength;
+                correctGuessList[word.length] = correctGuessList[word.length] +1;
+                document.getElementById("length").innerText = correctGuessList;
             });
         }
         
