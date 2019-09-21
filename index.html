@@ -13,6 +13,7 @@
                 url: "cookie.php",
                 method: "GET",
                 success : function(data) {
+                    console.log(data);
                     if(data != undefined && data != "Empty"){
                         if(data[0] != null){
                             document.getElementById("username").innerText = "Welcome "+data[0]+" !" ;
