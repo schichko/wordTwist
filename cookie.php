@@ -4,9 +4,9 @@ session_start();
 $verb = $_SERVER["REQUEST_METHOD"];
 
 if ($verb === "POST"){
-   // if($_POST['receiver_name'] != null){
+    if($_POST['receiver_name'] != ""){
         $_SESSION["name"] = $_POST['receiver_name'];
-    //}
+    }
     //if($_POST['rack'] != null){
         $_SESSION["rack"] = $_POST['rack'];
     //}
