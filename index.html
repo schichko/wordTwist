@@ -13,12 +13,13 @@
                 url: "cookie.php",
                 method: "GET",
                 success : function(data) {
-                    console.log(data);
-                    console.log(data[0]);
-                    console.log(data[1]);
                     if(data != undefined && data != "Empty"){
-                        console.log(data[1]);
-                        document.getElementById("username").innerText = "Welcome "+data[0]+" !" ;
+                        if(data[0] != null){
+                            document.getElementById("username").innerText = "Welcome "+data[0]+" !" ;
+                        }
+                        else{
+                            document.getElementById("username").innerText = "Welcome !" ;
+                        }
                         document.getElementById("Rack").innerText = data[1];
                         handleData(data[2]);
                         setGuesses(data[3]);
@@ -93,18 +94,12 @@
             for ( var i = 0; i < 7; i++ ) {
                 result[i] = characters.charAt(Math.floor(Math.random() * charactersLength));
             }
-            console.log(JSON.stringify(result));
-            result.sort();
-            console.log(JSON.stringify(result));
             wordLengthCount =[0,0,0,0,0,0,0];
             correctGuessList = [];
             document.getElementById("correct").innerText = correctGuessList;
             count_of_Correct = 0;
             document.getElementById("correct_count").innerText = "Correct Guesses: " + count_of_Correct;
             resultString =result.join('');
-            console.log(resultString);
-            //resultString = resultString.substring(0, resultString.length).replace(",","")
-            console.log(resultString);
             document.getElementById("Rack").innerText = result;
             
             $.ajax({
@@ -127,13 +122,12 @@
         }
 
         var handleData = function(data) {
-            //document.getElementById("correct-answers").innerHTML = "";
             wordList = handleDuplicates(data);
-            console.log(data);
-            console.log("in handle data");
+            if(wordList == null || wordList == []){
+                document.getElementById("length").innerText = "This rack has no possible words, please generate another rack";
+            }
             // Create list elements for each word
             wordList.forEach( function(word) {
-                console.log(word);
                 wordLengthCount[word.length-1] = wordLengthCount[word.length-1] +1;
                 document.getElementById("length").innerText = "One Letter:"+wordLengthCount[0]+"\nTwo Letters:"+wordLengthCount[1]+"\nThree Letters:"+wordLengthCount[2]+"\nFour Letters:"+wordLengthCount[3]+"\nFive Letters:"+wordLengthCount[4]+"\nSix Letters:"+wordLengthCount[5]+"\nSeven Letters:"+wordLengthCount[6];
             });
