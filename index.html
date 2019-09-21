@@ -98,7 +98,9 @@
             console.log(JSON.stringify(result));
             wordLengthCount =[0,0,0,0,0,0,0];
             correctGuessList = [];
+            document.getElementById("correct").innerText = correctGuessList;
             count_of_Correct = 0;
+            document.getElementById("correct_count").innerText = "Correct Guesses: " + count_of_Correct;
             resultString =result.join('');
             console.log(resultString);
             //resultString = resultString.substring(0, resultString.length).replace(",","")
