@@ -14,6 +14,11 @@
                 method: "GET",
                 success : function(data) {
                     console.log(data);
+                    console.log(data[0]);
+                    console.log(data[1]);
+                    console.log(data[2]);
+                    console.log(data[3]);
+                    console.log(data[4]);
                     if(data != undefined && data != "Empty"){
                         if(data[0] != null){
                             document.getElementById("username").innerText = "Welcome "+data[0]+" !" ;
@@ -130,6 +135,7 @@
             if(wordList == null || wordList == []){
                 document.getElementById("length").innerText = "This rack has no possible words, please generate another rack";
             }
+            console.log(wordList);
             // Create list elements for each word
             wordList.forEach( function(word) {
                 wordLengthCount[word.length-1] = wordLengthCount[word.length-1] +1;
