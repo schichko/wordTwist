@@ -22,6 +22,7 @@
                         document.getElementById("Rack").innerText = data[1];
                         handleData(data[2]);
                         setGuesses(data[3]);
+                        setWordLengthCount(data[4]);
                     }             
                 }
             })
@@ -74,6 +75,10 @@
         var correctGuessList = new Array();
         var wordLengthCount =[0,0,0,0,0,0,0];
         
+        var setWordLengthCount = function (data){
+            wordLengthCount = data;
+        }
+
         var setGuesses = function (data){
             correctGuessList = data;
             document.getElementById("correct").innerText = correctGuessList;
@@ -152,7 +157,7 @@
             $.ajax({
                 method: "POST",
                 url: "cookie.php",
-                data: { "receiver_name": document.getElementById("name").value,"rack":result,"wordList":wordList,"correctGuesses":correctGuessList},
+                data: { "receiver_name": document.getElementById("name").value,"rack":result,"wordList":wordList,"correctGuesses":correctGuessList,"wordLengthCount":wordLengthCount},
                 success : function(data) {
                     
                 }
