@@ -21,10 +21,18 @@
                         else{
                             document.getElementById("username").innerText = "Welcome !" ;
                         }
-                        document.getElementById("Rack").innerText = data[1];
-                        handleData(data[2]);
-                        setGuesses(data[3]);
-                        setWordLengthCount(data[4]);
+                        if(data[1] != null){
+                            document.getElementById("Rack").innerText = data[1];
+                        }
+                        if(data[2] != null){
+                            handleData(data[2]);
+                        }
+                        if(data[3] != null){
+                            setGuesses(data[3]);
+                        }
+                        if(data[4] != null){
+                            setWordLengthCount(data[4]);
+                        }
                     }             
                 }
             })
