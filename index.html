@@ -118,14 +118,11 @@
                     handleData(data);
                 }
             })
-            $.ajax({
-                method: "POST",
-                url: "cookie.php",
-                data: { "receiver_name": document.getElementById("name").value,"rack":result,"wordList":wordList,"correctGuesses":correctGuessList,"wordLengthCount":wordLengthCount},
-                success : function(data) {
-                    
-                }
-            })
+            console.log(rack);
+            console.log(correctGuessList);
+            console.log(count_of_Correct);
+            console.log(wordLengthCount);
+           
             
         }
 
@@ -139,6 +136,14 @@
                 wordLengthCount[word.length-1] = wordLengthCount[word.length-1] +1;
                 document.getElementById("length").innerText = "One Letter:"+wordLengthCount[0]+"\nTwo Letters:"+wordLengthCount[1]+"\nThree Letters:"+wordLengthCount[2]+"\nFour Letters:"+wordLengthCount[3]+"\nFive Letters:"+wordLengthCount[4]+"\nSix Letters:"+wordLengthCount[5]+"\nSeven Letters:"+wordLengthCount[6];
             });
+            $.ajax({
+                method: "POST",
+                url: "cookie.php",
+                data: { "receiver_name": document.getElementById("name").value,"rack":result,"wordList":wordList,"correctGuesses":correctGuessList,"wordLengthCount":wordLengthCount},
+                success : function(data) {
+                    
+                }
+            })
         }
         
         // Used to delete duplicates in the array.
@@ -187,7 +192,6 @@
         }
 
         var changeColorHandler = function (evt){
-            console.log(evt.currentTarget.value);
             let mycolor = evt.currentTarget.value
             document.getElementById("body1").style.backgroundColor = mycolor;
         }
