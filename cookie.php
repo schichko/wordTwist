@@ -23,7 +23,7 @@ else if ($verb === "GET"){
     if(!isset($_SESSION["name"]) || !isset($_SESSION["rack"]) || !isset($_SESSION["name"]) || !isset($_SESSION["correctGuesses"])){
         echo json_encode("EH");
     }else{
-        $dbSigning_array = array($_SESSION["name"],$_SESSION["rack"],$_SESSION["wordList"].$_SESSION["correctGuesses"]);
+        $dbSigning_array = array($_SESSION["name"],$_SESSION["rack"],$_SESSION["wordList"],$_SESSION["correctGuesses"]);
         echo json_encode($dbSigning_array);
     }
 }
