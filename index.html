@@ -16,7 +16,7 @@
                     console.log(data);
                     console.log(data[0]);
                     console.log(data[1]);
-                    if(data != undefined){
+                    if(data != undefined && data != "Empty"){
                         console.log(data[1]);
                         document.getElementById("username").innerText = "Welcome "+data[0]+" !" ;
                         document.getElementById("Rack").innerText = data[1];
