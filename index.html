@@ -113,6 +113,7 @@
             for ( var i = 0; i < 7; i++ ) {
                 result[i] = characters.charAt(Math.floor(Math.random() * charactersLength));
             }
+            result.sort();
             wordLengthCount =[0,0,0,0,0,0,0];
             correctGuessList = [];
             document.getElementById("correct").innerText = correctGuessList;
